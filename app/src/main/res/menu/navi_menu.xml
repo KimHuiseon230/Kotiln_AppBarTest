@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/item_info"
+        android:icon="@drawable/user"
+        android:title="User Data" />
+    <item
+        android:id="@+id/item_user"
+        android:icon="@drawable/user"
+        android:title="App Data" />
+    <item
+        android:id="@+id/item_age"
+        android:icon="@drawable/user"
+        android:title="User age" />
+    <item
+        android:id="@+id/item_email"
+        android:icon="@drawable/user"
+        android:title="User email" />
+
+</menu>
