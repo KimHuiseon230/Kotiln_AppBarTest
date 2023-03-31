@@ -23,25 +23,30 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(binding.root)
 
         binding.navigation.setNavigationItemSelectedListener(this)
-        //+++ toolbar
+        //+++ toolbar start
+        //내가 만든 툴바를 대체
         setSupportActionBar(binding.toolbar)
+        //토글버튼 생성  // ActionBarDrawerToggle을 실행하면 안데 있는 것들 실행
         toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.drawer_open, R.string.drawer_close)
+        // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //동기화
         toggle.syncState()
-        //+++ toolbar
+        //+++ toolbar end
 
         // ++++ dataList 설정해서 리사이클러 뷰에 값 넣기 start
         dataList = mutableListOf<DataList>()
 
         for (i in 1..20){
             if(i%2==1){
-                dataList.add(DataList("홍길동${i}","${20+i}","koreaLove1${10+i}@naver.com",R.drawable.man))
+                dataList.add(DataList("홍길동${i}","${20+i} 세","koreaLove1${10+i}@naver.com",R.drawable.man))
             }else{
-                dataList.add(DataList("고길동${i}","${20+i}","koreaHate2${20+i}@naver.com",R.drawable.woman))
+                dataList.add(DataList("고길동${i}","${20+i} 세 ","koreaHate2${20+i}@naver.com",R.drawable.woman))
             }
         } //for end
 
         binding.recyclerView.adapter = CustomRecycleAdapter(dataList)
+        //리사이클러 뷰의 출력의 형태를 보여줌.(수직, 수평, 불규칙)
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.setHasFixedSize(true)
